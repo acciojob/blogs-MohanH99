@@ -7,11 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.Exception;
-
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UserController{
     @Autowired
     UserService userService;
 
@@ -30,7 +28,7 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Void> updateUser(@RequestParam Integer id, @RequestParam String password) throws Exception {
+    public ResponseEntity<Void> updateUser(@RequestParam Integer id, @RequestParam String password) {
         // update password of given user
         userService.updateUser(id,password);
         return new ResponseEntity<>(HttpStatus.OK);
